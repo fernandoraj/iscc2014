@@ -126,6 +126,7 @@
 
 % *** GRAPHICS RELATED PACKAGES ***
 %
+\usepackage{graphicx}
 \ifCLASSINFOpdf
   % \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
@@ -454,6 +455,51 @@ behavioral correlations, creating the new behavio-temporal correlation.
 
 \section{Introduction}
 % no \IEEEPARstart
+
+In continuous environmental monitoring applications the sensors in a dense WSN
+generate a data stream that must be transmitted to a Sink to be processed and
+stored in a Fusion and Decision Center (FDC). It is widely noted [x, x, x] that
+this data stream exhibits strong spatio-temporal correlation.
+
+Consider, for example, a dense WSN used in the monitoring of forest fires in
+which a magnitude of temperature is monitored. Suppose further the situation in
+which the monitored region is affected by dozens of small forest fires (Figure
+1a). A possible graph of the temperature contours lines (level curves) for this
+hypothetical situation is presented in Figure 1b. In this case the contours
+lines form dozens closed areas resulting in natural groupings in the data.
+Moreover, it is very likely that the temperature sensors measurements in dozens
+of spatially separated clusters also exhibit high correlation. Insight in
+Behavioral Correlation Clustering (BCC) is to group all these small clusters
+spatially separated in a single cluster, as opposed to existing spatio-temporal
+correlation techniques that would keep as dozens of separate clusters.
+
+BCC is to join in a group the sensors for which the forecasting models for
+measurement time series are approximately the same independent of their spatial
+proximity.  Note that the BCC naturally captures the spatial grouping, if it
+exists, since the correlation is between the sensor time series. Several
+measures of similarity, dissimilarity or statistical correlation can be used to
+group the sensors based on the its time series. Also, several strategies can be
+used to trigger the evaluation of clustering: periodic, sliding windows,
+triggering threshold and others.
+
+Note that behavioral correlation clustering (BCC) is enabled by centralized
+clustering, being more difficult to implement in distributed correlation or
+clustering approaches, among other things, due to the limited range of sensor
+transmissions.
+
+\begin{figure}[!htb]
+\centering
+	\includegraphics[scale=0.7]{I1.png}
+    \caption{Forest fire photography}
+    \label{lab}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+	\includegraphics[scale=0.7]{I2.png}
+    \caption{Contours lines of temperature}
+    \label{lab}
+\end{figure}
 
 Sensors are devices used to collect data from the environment related to the
 detection or measurement of physical phenomena. Sensors are limited in power,
