@@ -271,7 +271,7 @@ In this sense, in this paper, we present new approach for clustering sensors in
 WSNs. The main features of the proposed approach are: {\it (i)} Cluster
 formation based on the \textit{Behavioral Correlation} of the sensors, which, in
 turn, is computed from the time series of sensor readings by applying a
-\textit{Dissimilarity Measure}, and; {\it (ii)} the use of a linear regression
+\textit{Similarity Measure}, and; {\it (ii)} the use of a linear regression
 model for the temporal suppression of sensed data through the maximum error
 level (threshold) desired by the user used to control the data to be sent to the
 sink. Furthermore, two different approaches to select of active nodes
@@ -428,15 +428,16 @@ them. In this way, such approach becomes inappropriate for sensor networks.
 %\section{Proposed Approach}
 \section{Implementing Behavioral Correlation in WSNs}
 
-In this section, the proposed approach for clustering sensors in a WSN based on
-the notion of behavioral correlation. Our approach, called Behavioral
-Correlation in Wireless Sensor Networks (\textit{BCWSN} for short), is based on
-clustering sensors by means of behavioral correlation, which is in turn computed
-from the time series of sensor readings, and on using a linear regression model
-for the temporal suppression of data to be sent to the sink node.
+In this section, we present the proposed approach for clustering sensors in a
+WSN based on the notion of behavioral correlation. Our approach, called
+Behavioral Correlation in Wireless Sensor Networks (\textit{BCWSN} for short),
+is based on clustering sensors by means of behavioral correlation, which is in
+turn computed from the time series of sensor readings, and on using a linear
+regression model for the temporal suppression of data to be sent to the sink
+node.
 
 Two different approaches for intra-cluster sensor node scheduling have been
-implemented in order to uniformly distribute the sensing activity amor the
+implemented in order to uniformly distribute the sensing activity for the
 sensor nodes of a cluster. In the first one, called Representative Nodes (RNs),
 only one node in each cluster $C_{i}$ is chosen at each time to represent that
 cluster. In other words, a representative node is responsible for sensing and
@@ -465,42 +466,75 @@ defined by the application expert.
 
 \subsubsection{Clustering Sensor Nodes}
 
-The calculation of \textit{Dissimilarity Measures} between the sensors as
-described in \cite{Liu2007}, is accomplished by the sink node, as a criterion
-for the formation of clusters, from 2 (or 3) parameters (the third is optional):
-the similarity of magnitude (\textit{spacialThresholdError}), the similarity of
-trend (\textit{thresholdError}) and the distance (\textit{maxDistance}) between
-nodes (in our case, not mandatory). Thus, from the time series of readings of
-each sensor, sink performs the comparison of data received through the
-calculations of (dis)similarity among all the sensors (peer to peer) as follows:
+The calculation of \textit{Similarity Measures} between the sensors, based on
+which described in \cite{Liu2007}, is accomplished by the sink node, as
+criterion for the formation of clusters, from 2 (or 3) parameters (the third is
+optional):
+the similarity of magnitude, the similarity of trend and the distance
+(\textit{maxDistance}) between nodes (in our case, not mandatory). So, we define
+the metrics below to evaluate if two sensor are in the same cluster or not:
 
-\begin{enumerate}
-    \item If the maximum distance (\textit{maxDistance}) has value greater than
-0 (zero) and the spatial distance between the nodes in question is less than
-this value, or if the parameter maximum distance (maxDistance) has value equal
-to 0 (zero), then go to the next step. Otherwise, the sensors are in different
-clusters.
-    \item If the average of the differences between the values of the readings
-of the sensors is less than or equal to magnitude similarity parameter
-(\textit{spacialThresholdError}) and if the percentage similar trends
-(growth/decay) of the data of the two sensors is greater or equal to the
-parameter of trend similarity (\textit{thresholdError}), so these sensors
-will be in the same cluster. Otherwise, they will be in different clusters.
- \end{enumerate}
+\newtheorem{defini}{Definition}
 
-Thus, at the end of this process, all sensors nodes have been divided /
-classified in clusters by the sink, according to initial readings sent / passed
-by sensor nodes to the sink and the \textit{Dissimilarity Measures}
-parameterized, using the \textit{behavioral correlation} proposed. Whenever the
-sink receives a notification of novelties threshold exceeded of a sensor node
-(that can be a RN or a CH), it (sink) recalculates the dissimilarity measures
-between all nodes of this cluster to check whether it is necessary to perform a
-split in such a cluster.
+\begin{defini}
+Similarity of magnitude-M: Two sensors ($S_{1}$ and $S_{2}$) with time series
+$S_{1}$\{$s_{1_1}$,$s_{1_2}$,\ldots,$s_{1_n}$\} and
+$S_{2}$\{$s_{2_1}$,$s_{2_2}$,\ldots,$s_{2_m}$\} are magnitude-M similar if for
+{\it i} ($1\leq i\leq n$), {\it j} ($1\leq j\leq m$) such that ($i = j$) for x times,
+then 
+\begin{equation}
+\frac{\sum_{i = 0}^{x} |s_{1_i}-s_{2_i}|}{x} \leq M
+\end{equation}
+%$\displaystyle \sum_{i = 0}^{n} |s_{1_i}-s_{2_i}| \leq M$
+\end{defini}
 
-Once the sensors
-are initially grouped into clusters, Representative Nodes or Cluster Heads of each
-cluster will be chosen through 2 criteria, applied to all nodes of each sensor
-clusters:
+\begin{defini}
+Similarity of trend-T: Two sensors ($S_{1}$ and $S_{2}$) with time series
+$S_{1}$\{$s_{1_1}$,$s_{1_2}$,\ldots,$s_{1_n}$\} and
+$S_{2}$\{$s_{2_1}$,$s_{2_2}$,\ldots,$s_{2_n}$\} are trend-T similar if 
+\begin{equation}
+\frac{n_{1}}{n} \geq T,
+\end{equation}
+where $n$ is the total number of sensed data and $n_{1}$ is the number of pairs
+$(s_{1_i},s_{2_i})$ in the time series that satisfy $\nabla s_{1_i} \* \nabla
+s_{2_i} \geq 0$, such that $\nabla s_{1_i} = s_{1_i} - s_{1_{i-1}}$, $\nabla
+s_{2_i} = s_{2_i} - s_{2_{i-1}}$ and $1 < i \leq n$.
+\end{defini}
+
+Thus, from the time series of readings of each two sensors, sink performs the
+comparison of data received through the calculations of similarity among that
+sensors (peer to peer) as follows:
+If the average of the differences between the values of the readings of the
+sensors is less than or equal to M-magnitude similarity parameter and if the
+percentage similar trends (growth/decay) of the data of the two sensors is
+greater or equal to the T-trend similarity, so these sensors will be in the same
+cluster. Otherwise, they will be in different clusters.
+
+% \begin{enumerate}
+%     \item If the maximum distance (\textit{maxDistance}) has value greater than
+% 0 (zero) and the spatial distance between the nodes in question is less than
+% this value, or if the parameter maximum distance (maxDistance) has value equal
+% to 0 (zero), then go to the next step. Otherwise, the sensors are in different
+% clusters.
+%     \item If the average of the differences between the values of the readings
+% of the sensors is less than or equal to magnitude similarity parameter
+% (\textit{spacialThresholdError}) and if the percentage similar trends
+% (growth/decay) of the data of the two sensors is greater or equal to the
+% parameter of trend similarity (\textit{thresholdError}), so these sensors
+% will be in the same cluster. Otherwise, they will be in different clusters.
+%  \end{enumerate}
+
+Thus, at the end of this process, all sensors nodes have been classified in
+clusters by the sink, according to initial readings sent by sensor nodes to the
+sink and the \textit{Similarity Measures}, using the \textit{behavioral
+correlation} proposed. Whenever the sink receives a notification of novelties
+threshold exceeded of a sensor node (that can be a RN or a CH), it (sink)
+recalculates the dissimilarity measures between all nodes of this cluster to
+check whether it is necessary to perform a split in such a cluster.
+
+Once the sensors are initially grouped into clusters, Representative Nodes or
+Cluster Heads of each cluster will be chosen through 2 criteria, applied to all
+nodes of each sensor clusters:
 \begin{enumerate}
     \item The nodes are ordered by the criterion of highest energy level (higher
     battery load), largest to smallest
@@ -509,25 +543,28 @@ clusters:
     to the biggest
  \end{enumerate}
 
+
 After this classification process, the first one of each cluster node (that is,
 the one that has the higher energy level of battery and the shortest distance to
-the sink) will be initially chose as Representative Node. This process of
-choosing of RNs is repeated for each cluster, whenever a new notification is
-received by the sink.
+the sink) will be initially chose as Representative Node / Cluster Head. This
+process of choosing of RNs / CHs is repeated for each cluster, whenever a new
+notification is received by the sink.
+
 
 \subsubsection{In-Network Data Prediction}
 \label{data-predict}
 
-The maximum amount of predictions (reading/prediction loops) for each node
-(Representative of each cluster) will be calculated (individually) as being the
-starting size time slot divided by amount of nodes in the cluster, namely, will
-be inversely proportional to quantity sensor nodes in each cluster. The reason
-for this form of calculation is for there to be a better division (fairer) of
-energy expenditure between the sensors of the same cluster, causing those
-sensors that have similarities in their readings (of a same cluster) to switch
-on the monitoring of the area covered by these sensors, increasing the lifetime
-total of each cluster and thus contributing to increase the total life time of
-the network. The in-network prediction implemented by BCWSN relies on the
+% The maximum amount of predictions (reading/prediction loops) for each node
+% (Representative of each cluster) will be calculated (individually) as being the
+% starting size time slot divided by amount of nodes in the cluster, namely, will
+% be inversely proportional to quantity sensor nodes in each cluster. The reason
+% for this form of calculation is for there to be a better division (fairer) of
+% energy expenditure between the sensors of the same cluster, causing those
+% sensors that have similarities in their readings (of a same cluster) to switch
+% on the monitoring of the area covered by these sensors, increasing the lifetime
+% total of each cluster and thus contributing to increase the total life time of
+% the network. 
+The in-network prediction implemented by BCWSN relies on the
 following linear regression equation: $\hat{S}(t) = a + bt$.
 The time $t$ is an independent variable. $\hat{S}(t)$ represents the estimated
 value of $S(t)$ and is variable with $t$. Parameter $a$ is the interceptor-t
@@ -541,42 +578,65 @@ as follows:
 	b = \frac{\sum \left(t_{i} - \bar{t}\right)\left(S_{i} - \bar{S}\right)}{\sum \left(t_{i} - \bar{t}\right)^{2}}.
 \end{equation}
 
-After the calculation of the maximum amount of predictions and the coefficients
-of the regression equation, the sink sends this data through a message addressed
-to the respective Representative Sensor Node, who, in turn, should begin the
-process of sensing (reading/prediction).
+The idea behind this method is that both the sink and the sensor node know the
+regression equation to predict the sensed values​​, such that, if the value read
+by the sensor is within the limit stipulated maximum error, then the sensor will
+not need to send data to sink (as it is able to calculate the regression
+equation through a good approximation for the values​​), and thus the network is
+saving power of the sensors because they do not need to send such messages.
+
+After the calculation of the coefficients from regression equation for each
+node (and of the maximum amount of predictions in RN mode), the
+sink sends this data through a message addressed to the respective node, who, in
+turn, should begin the process of sensing (reading/prediction loop).
 
 \subsubsection{Sensing}
 
 As already mentioned, two different approaches for intra-cluster sensor node
 scheduling have been implemented in order to uniformly distribute the sensing
-activity amor the sensor nodes of a cluster. In the first one, called
+activity for the sensor nodes of a cluster. In the first one, called
 Representative Nodes (RNs), only one node in a cluster $C_{i}$ is responsible
 for sensing and predicting data in $C_{i}$ for given time interval. In the
 second method, called Cluster Heads (CHs), on the other hand, one sensor node
 (the CH) in each cluster $C_{i}$ is selected to coordinate the data sensing
 activity carried out by all nodes in $C_{i}$.
 
+So, the nodes that have received coefficients enter into reading / prediction
+loop, in such a way that every step, they must verify that the read value
+(sensing) for each one is within the bounds of error (threshold) to the value
+predicted by calculating the regression equation from that node. If the limits
+of error are respected, then the node's regression equation encountered a hit
+(hit); otherwise, it must record an error (miss). If the number of errors
+(misses) exceeds a certain limit (pre-set), then such node must report this fact 
+to someone.
 
-At this stage, the Representative Node enter into reading / prediction loop, in
-such a way that every step, they must verify that the read value (sensing) for
-each one is within the bounds of error (threshold) to the value predicted by
-calculating the regression equation from / for that node. If the limits of error
-are respected, then the Representative Node's regression equation encountered a
-hit (hit), otherwise, it must record an error (miss). If the number of errors
-(misses) exceeds a certain limit (preset), then such Representative Node must
-report the sink, otherwise, the Representative Node must perform such process of
+
+
+In RN mode, only the Representative Nodes (one for cluster) will receive the
+coefficients and will execute the process of sensing (reading/prediction loop).
+In case of a miss, the RN must report the sink directly with "Novelties".
+Otherwise, the Representative Node must perform such process of
 reading/verifying the prediction to the limit the number of predictions made for
 that Representative Node by sink, calculated in the previous phase.
 
-\subsubsection{Report of "Novelties"}
+In CH mode, all sensors (in each cluster) will receive their respective
+coefficients and will execute the process of sensing (reading/prediction loop).
+But, in this case, whenever occurs a number of errors (misses) greater than the
+limit error (per sensor) in a sensor node, that sensor send a
+notification for its respective Cluster Head. This in turn stores the number of
+notifications received, in such way that when the number of notifications
+received from any sensor from that cluster exceeds a pre-set limit (limit per
+cluster), then the CH sends a message to the sink with the "Novelties"
 
-During the execution of the sensing loop, when a Representative Node verifies
-that the number of errors (misses) exceeded a given threshold (preset), this
+\subsubsection{Processing of "Novelties"}
+
+During the execution of the sensing loop, when a node (RN or CH) verifies
+that the number of errors (notifications) exceeded a given threshold (preset), this
 node must inform such event to the sink by sending a message, which will contain
-still the latest data reads/sensings performed beyond the current level of
-sensor battery. When such a message arrives at the sink node, this must update
-the data relating the Representative Node (including the battery level) and then
+still the latest data readings/sensings performed beyond the current level of
+sensor battery. 
+When such a message arrives at the sink node, this must update
+the data relating the respective node (including the battery level) and then
 must check one of the following possibilities:
 
 \begin{enumerate}
@@ -599,11 +659,14 @@ contain the current battery level information (energy reserves) of that node, in
 such a way that the sink can update this information and verify the need to
 exchange the sensor node to be chosen as RN / CH of the respective cluster.
 
-\subsubsection{Process of Cluster Division (Split)}
+\subsubsection{Cluster Automatic Reorganization}
+
+The sink has the ability to reorganize the clusters automatically according to
+the need.
 
 This process must be raised by the sink whenever it finds that the set of nodes
 sensors grouped in a particular cluster is no longer meeting the minimum
-requirements of (dis)similarity required from the initial parameter
+requirements of similarity required from the initial parameter
 configuration data. In this case, the sink must perform the split of the nodes
 of a given cluster sensors in two or more new clusters, selecting new
 Representative Node (RNs) - one for each of the new clustes - in accordance with
@@ -612,7 +675,7 @@ to that, the sink must keep a control on the maximum number of divisions
 (splits) or the maximum amount of clusters, in such a way that it is capable of
 firing the "restructuring process (merge)" cluster to verify this need.
 
-\subsubsection{Cluster Restructuring (Merge)}
+%\subsubsection{Cluster Restructuring (Merge)}
 
 Whenever there are a large number of divisions (splits) and the minimum rate
 occupation clusters (average of nodes per cluster) on the network
