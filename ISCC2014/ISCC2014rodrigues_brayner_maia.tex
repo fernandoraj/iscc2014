@@ -1,68 +1,3 @@
-
-%% bare_conf.tex
-%% V1.3
-%% 2007/01/11
-%% by Michael Shell
-%% See:
-%% http://www.michaelshell.org/
-%% for current contact information.
-%%
-%% This is a skeleton file demonstrating the use of IEEEtran.cls
-%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
-%%
-%% Support sites:
-%% http://www.michaelshell.org/tex/ieeetran/
-%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
-%% and
-%% http://www.ieee.org/
-
-%%*************************************************************************
-%% Legal Notice:
-%% This code is offered as-is without any warranty either expressed or
-%% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE! 
-%% User assumes all risk.
-%% In no event shall IEEE or any contributor to this code be liable for
-%% any damages or losses, including, but not limited to, incidental,
-%% consequential, or any other damages, resulting from the use or misuse
-%% of any information contained here.
-%%
-%% All comments are the opinions of their respective authors and are not
-%% necessarily endorsed by the IEEE.
-%%
-%% This work is distributed under the LaTeX Project Public License (LPPL)
-%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
-%% distributed and modified. A copy of the LPPL, version 1.3, is included
-%% in the base LaTeX documentation of all distributions of LaTeX released
-%% 2003/12/01 or later.
-%% Retain all contribution notices and credits.
-%% ** Modified files should be clearly indicated as such, including  **
-%% ** renaming them and changing author support contact information. **
-%%
-%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
-%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
-%%*************************************************************************
-
-% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
-% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
-% *** with production work. IEEE's font choices can trigger bugs that do  ***
-% *** not appear when using other class files.                            ***
-% The testflow support page is at:
-% http://www.michaelshell.org/tex/testflow/
-
-
-
-% Note that the a4paper option is mainly intended so that authors in
-% countries using A4 can easily print to A4 and see how their papers will
-% look in print - the typesetting of the document will not typically be
-% affected with changes in paper size (but the bottom and side margins will).
-% Use the testflow package mentioned above to verify correct handling of
-% both paper sizes by the user's LaTeX system.
-%
-% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
-% should be used if it is desired that the figures are to be displayed in
-% draft mode.
-%
 \documentclass[conference]{IEEEtran}
 % Add the compsoc option for Computer Society conferences.
 %
@@ -70,35 +5,8 @@
 % manually specify the path to it like:
 % \documentclass[conference]{../sty/IEEEtran}
 
-
-
-
-
 % Some very useful LaTeX packages include:
 % (uncomment the ones you want to load)
-
-
-% *** MISC UTILITY PACKAGES ***
-%
-%\usepackage{ifpdf}
-% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
-% compilation based on whether the output is pdf or dvi.
-% usage:
-% \ifpdf
-%   % pdf code
-% \else
-%   % dvi code
-% \fi
-% The latest version of ifpdf.sty can be obtained from:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
-% Also, note that IEEEtran.cls V1.7 and later provides a builtin
-% \ifCLASSINFOpdf conditional that works the same way.
-% When switching from latex to pdflatex and vice-versa, the compiler may
-% have to be run twice to clear warning/error messages.
-
-
-
-
 
 
 % *** CITATION PACKAGES ***
@@ -120,52 +28,9 @@
 % The documentation is contained in the cite.sty file itself.
 
 
-
-
-
-
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \usepackage{graphicx}
-\ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
-\else
-  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
-  % will default to the driver specified in the system graphics.cfg if no
-  % driver is specified.
-  % \usepackage[dvips]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../eps/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
-\fi
-% graphicx was written by David Carlisle and Sebastian Rahtz. It is
-% required if you want graphics, photos, etc. graphicx.sty is already
-% installed on most LaTeX systems. The latest version and documentation can
-% be obtained at: 
-% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
-% Another good source of documentation is "Using Imported Graphics in
-% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
-% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
-%
-% latex, and pdflatex in dvi mode, support graphics in encapsulated
-% postscript (.eps) format. pdflatex in pdf mode supports graphics
-% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
-% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
-% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
-% which can result in "jaggedy"/blurry rendering of lines and letters as
-% well as large increases in file sizes.
-%
-% You can find documentation about the pdfTeX application at:
-% http://www.tug.org/applications/pdftex
-
-
 
 
 
@@ -213,147 +78,13 @@
 
 
 
-
-% *** ALIGNMENT PACKAGES ***
-%
-%\usepackage{array}
-% Frank Mittelbach's and David Carlisle's array.sty patches and improves
-% the standard LaTeX2e array and tabular environments to provide better
-% appearance and additional user controls. As the default LaTeX2e table
-% generation code is lacking to the point of almost being broken with
-% respect to the quality of the end results, all users are strongly
-% advised to use an enhanced (at the very least that provided by array.sty)
-% set of table tools. array.sty is already installed on most systems. The
-% latest version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/required/tools/
-
-
-%\usepackage{mdwmath}
-%\usepackage{mdwtab}
-% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
-% especially mdwmath.sty and mdwtab.sty which are used to format equations
-% and tables, respectively. The MDWtools set is already installed on most
-% LaTeX systems. The lastest version and documentation is available at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
-
-
-% IEEEtran contains the IEEEeqnarray family of commands that can be used to
-% generate multiline equations as well as matrices, tables, etc., of high
-% quality.
-
-
-%\usepackage{eqparbox}
-% Also of notable interest is Scott Pakin's eqparbox package for creating
-% (automatically sized) equal width boxes - aka "natural width parboxes".
-% Available at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
-
-
-
-
-
-% *** SUBFIGURE PACKAGES ***
-%\usepackage[tight,footnotesize]{subfigure}
-% subfigure.sty was written by Steven Douglas Cochran. This package makes it
-% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
-% work, it is a good idea to load it with the tight package option to reduce
-% the amount of white space around the subfigures. subfigure.sty is already
-% installed on most LaTeX systems. The latest version and documentation can
-% be obtained at:
-% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
-% subfigure.sty has been superceeded by subfig.sty.
-
-
-
-%\usepackage[caption=false]{caption}
-%\usepackage[font=footnotesize]{subfig}
-% subfig.sty, also written by Steven Douglas Cochran, is the modern
-% replacement for subfigure.sty. However, subfig.sty requires and
-% automatically loads Axel Sommerfeldt's caption.sty which will override
-% IEEEtran.cls handling of captions and this will result in nonIEEE style
-% figure/table captions. To prevent this problem, be sure and preload
-% caption.sty with its "caption=false" package option. This is will preserve
-% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
-% (recommended due to many improvements over 1.2) of subfig.sty supports
-% the caption=false option directly:
-%\usepackage[caption=false,font=footnotesize]{subfig}
-%
-% The latest version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
-% The latest version and documentation of caption.sty can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
-
-
-
-
-% *** FLOAT PACKAGES ***
-%
-%\usepackage{fixltx2e}
-% fixltx2e, the successor to the earlier fix2col.sty, was written by
-% Frank Mittelbach and David Carlisle. This package corrects a few problems
-% in the LaTeX2e kernel, the most notable of which is that in current
-% LaTeX2e releases, the ordering of single and double column floats is not
-% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
-% single column figure to be placed prior to an earlier double column
-% figure. The latest version and documentation can be found at:
-% http://www.ctan.org/tex-archive/macros/latex/base/
-
-
-
-%\usepackage{stfloats}
-% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
-% the ability to do double column floats at the bottom of the page as well
-% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
-% LaTeX2e). It also provides a command:
-%\fnbelowfloat
-% to enable the placement of footnotes below bottom floats (the standard
-% LaTeX2e kernel puts them above bottom floats). This is an invasive package
-% which rewrites many portions of the LaTeX2e float routines. It may not work
-% with other packages that modify the LaTeX2e float routines. The latest
-% version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
-% Documentation is contained in the stfloats.sty comments as well as in the
-% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
-% does not allow \baselineskip to stretch. Authors submitting work to the
-% IEEE should note that IEEE rarely uses double column equations and
-% that authors should try to avoid such use. Do not be tempted to use the
-% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
-% not format its papers in such ways.
-
-
-
-
-
-% *** PDF, URL AND HYPERLINK PACKAGES ***
-%
-%\usepackage{url}
-% url.sty was written by Donald Arseneau. It provides better support for
-% handling and breaking URLs. url.sty is already installed on most LaTeX
-% systems. The latest version can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
-% Read the url.sty source comments for usage information. Basically,
-% \url{my_url_here}.
-
-
-
-
-
-% *** Do not adjust lengths that control margins, column widths, etc. ***
-% *** Do not use packages that alter fonts (such as pslatex).         ***
-% There should be no need to do such things with IEEEtran.cls V1.6 and later.
-% (Unless specifically asked to do so by the journal or conference you plan
-% to submit to, of course. )
-
-
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
 
 \begin{document}
 %
-% paper title
-% can use linebreaks \\ within to get better formatting as desired
-%\title{Comparative study of two techniques for clustering in Multi-Hop Wireless Sensor Networks}
+
 \title{Behavioral Correlation: A new approach for clustering sensors in Wireless Sensor Networks}
 
 % author names and affiliations
@@ -373,62 +104,28 @@ brayner@unifor.br}
 Fortaleza - Ceara - Brazil\\
 jose.maia@uece.br}}
 
-% conference papers do not typically use \thanks and this command
-% is locked out in conference mode. If really needed, such as for
-% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
-% after \documentclass
-
-% for over three affiliations, or if they all won't fit within the width
-% of the page, use this alternative format:
-% 
-%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
-%Homer Simpson\IEEEauthorrefmark{2},
-%James Kirk\IEEEauthorrefmark{3}, 
-%Montgomery Scott\IEEEauthorrefmark{3} and
-%Eldon Tyrell\IEEEauthorrefmark{4}}
-%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
-%Georgia Institute of Technology,
-%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
-%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
-%Email: homer@thesimpsons.com}
-%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
-%Telephone: (800) 555--1212, Fax: (888) 555--1212}
-%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
-
-
-
-
-% use for special paper notices
-%\IEEEspecialpapernotice{(Invited Paper)}
-
-
-
 
 % make the title area
 \maketitle
 
 
 \begin{abstract}
-%\boldmath
-% Sensor clustering is an efficient strategy to reduce the number of messages
-% transmitted to the sink in a multi-hop wireless sensor network. In this work we
-% make a comparative study of two sensor clustering techniques: cluster heads and
-% representative nodes. These techniques are compared with each other and also
-% about the effects on them of incorporating mechanisms of temporal and
-% spatial-temporal correlations.
 
 Sensor clustering is an efficient strategy to reduce the number of messages
-transmitted to the sink in a multi-hop wireless sensor network. In this work we
-present a new approach to clustering based on the behavior exhibited by the
-historical data read from sensors. Such approach do not use the existing
-spatial distance between the sensors (traditional Spatial Correlation) for
-clustering, so that the clusters are formed based %solely 
-on the dissimilarity measures from the network sensor nodes.
-Furthermore, two scheduling intra-clustering methods are tested: Cluster Heads and
-Representative Nodes. These techniques are compared with each other and also
-about the effects on them of incorporating mechanisms of temporal and
-behavioral correlations, creating the new behavio-temporal correlation.
+transmitted to the sink in a multi-hop wireless sensor network. Thus far
+grouping sensors in clusters is by applying the principle of spatial locality,
+which may ensure spatial correlation for data sense by sensors within a given
+area. Nonetheless, in several scenarios sensors, which are not spatially close
+to each other, may have similar data reading patterns.
+In this work we present a new approach to cluster sensors in WSN based on the
+behave of historical data collected by sensors. Instead of using the spatial
+distance among sensors for clustering them, the proposed approach the concept of
+behavioral correlation to group sensors.
+Furthermore, two scheduling intra-clustering methods are tested: Cluster Heads
+and Representative Nodes. These techniques are compared with each other and also
+about the effects on them of incorporating mechanism of behavioral correlation.
 \end{abstract}
+
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
 % if the conference you are submitting to favors bold math in the abstract,
@@ -456,50 +153,6 @@ behavioral correlations, creating the new behavio-temporal correlation.
 \section{Introduction}
 % no \IEEEPARstart
 
-In continuous environmental monitoring applications the sensors in a dense WSN
-generate a data stream that must be transmitted to a Sink to be processed and
-stored in a Fusion and Decision Center (FDC). It is widely noted [x, x, x] that
-this data stream exhibits strong spatio-temporal correlation.
-
-Consider, for example, a dense WSN used in the monitoring of forest fires in
-which a magnitude of temperature is monitored. Suppose further the situation in
-which the monitored region is affected by dozens of small forest fires (Figure
-1a). A possible graph of the temperature contours lines (level curves) for this
-hypothetical situation is presented in Figure 1b. In this case the contours
-lines form dozens closed areas resulting in natural groupings in the data.
-Moreover, it is very likely that the temperature sensors measurements in dozens
-of spatially separated clusters also exhibit high correlation. Insight in
-Behavioral Correlation Clustering (BCC) is to group all these small clusters
-spatially separated in a single cluster, as opposed to existing spatio-temporal
-correlation techniques that would keep as dozens of separate clusters.
-
-BCC is to join in a group the sensors for which the forecasting models for
-measurement time series are approximately the same independent of their spatial
-proximity.  Note that the BCC naturally captures the spatial grouping, if it
-exists, since the correlation is between the sensor time series. Several
-measures of similarity, dissimilarity or statistical correlation can be used to
-group the sensors based on the its time series. Also, several strategies can be
-used to trigger the evaluation of clustering: periodic, sliding windows,
-triggering threshold and others.
-
-Note that behavioral correlation clustering (BCC) is enabled by centralized
-clustering, being more difficult to implement in distributed correlation or
-clustering approaches, among other things, due to the limited range of sensor
-transmissions.
-
-\begin{figure}[!htb]
-\centering
-	\includegraphics[scale=0.7]{I1.png}
-    \caption{Forest fire photography}
-    \label{lab}
-\end{figure}
-
-\begin{figure}[!htb]
-\centering
-	\includegraphics[scale=0.7]{I2.png}
-    \caption{Contours lines of temperature}
-    \label{lab}
-\end{figure}
 
 Sensors are devices used to collect data from the environment related to the
 detection or measurement of physical phenomena. Sensors are limited in power,
@@ -514,42 +167,19 @@ chains), infrastructure protection (e.g., water distribution), battlefield
 awareness (e.g., multi-target tracking) and context-aware computing (e.g.,
 intelligent home) applications.
 
-% Wireless sensor networks (WSNs) has been widely used for capturing environmental
-% phenomena data in applications such as study and preservation of ecosystems,
-% forest fire alert-and-response and even to study certain species of trees
-% \cite{Tolle2005}. However the technological advancement in the technologies for
-% construction and communication between sensors, a critical key point is still
-% the energy consumption of the nodes, whose highest percentage of consumption
-% occurs due to the transmission and reception of data between sensors
-% \cite{Yick2008}. Higher accuracy comes at a higher energy cost in many systems.
-% 
-% To the best of our knowledge, ecological and real sensor data (physical
-% environments) is usually strongly correlated \cite{Yoon2005}, so it is easier to
-% infer the state of a sensor (from its past and its proximity) \cite{Chu2006}.
 
-WSNs can be categorized into three types, depending on the application or the
-use pattern of the network. Thus, there exist WSNs for: {\it (i)} responding to
-user queries \cite{Brayner2007}; {\it (ii)} continuously sensing (stream), or;
-{\it (iii)} monitoring of certain sporadic events \cite{Ren2007}. These uses are
-not mutually exclusive, i.e. in a WSN that responds to queries, one can submit
-queries to request data to be sensed with a certain frequency (continuous
-sensing) and even data whenever certain events occur. The case that stands out
-as being the most critical usage is exactly the continuous sensing, because, in
-this case, every certain time interval programmed, the sensor nodes need to take
-readings and send the values read through the network, passing from node to
-node, until these data reach the sink \cite{Villas2012}.
+%WSNs can be categorized into three types, depending on the application or the
+%use pattern of the network. Thus, there exist WSNs for: {\it (i)} responding to
+%user queries \cite{Brayner2007}; {\it (ii)} continuously sensing (stream), or;
+%{\it (iii)} monitoring of certain sporadic events \cite{Ren2007}. These uses are
+%not mutually exclusive, i.e. in a WSN that responds to queries, one can submit
+%queries to request data to be sensed with a certain frequency (continuous
+%sensing) and even data whenever certain events occur. The case that stands out
+%as being the most critical usage is exactly the continuous sensing, because, in
+%this case, every certain time interval programmed, the sensor nodes need to take
+%readings and send the values read through the network, passing from node to
+%node, until these data reach the sink \cite{Villas2012}.
 
-% WSNs can be categorized into three types, depending on the application or the
-% use pattern of the network. They can be used for i) respond to queries, ii)
-% continuous sensing (stream) or iii) monitoring of certain sporadic events
-% \cite{Ren2007}; however, these uses are not mutually exclusive, i.e. in a WSN
-% that responds to queries, we can make queries that request data to be sensed
-% with a certain frequency (continuous sensing) and even if alarms are raised when
-% certain events occur. The case that stands out as being the most critical usage
-% is exactly the continuous sensing, because, in this case, every certain time
-% interval programmed, the sensor nodes need to take readings and send the values
-% read through the network, passing from node to node, until these data reach the
-% sink \cite{Villas2012}.
 
 In spite of advances in WSN technology, a critical key point is still the
 energy consumption of sensor nodes. It is well known that communication among
@@ -568,52 +198,85 @@ leads to similar measurements (values) of sensed data, phenomenon known as
 "principle of spatial locality". Thus, one can infer that from the capture of
 some sensors readings (located in some regions of sensing space), it is possible
 to obtain, approximately, the values of the readings of other sensors in its
-surroundings. On the other hand, the temporal correlation indicates  the various
+surroundings. On the other hand, the temporal correlation indicates the various
 readings of a sensor within a time interval have a certain approximation of
 their values (principle of temporal locality). such a feature makes possible to
 predict (with a certain margin of error) sensed values in the future based on
 data collected in the past.
 
-% One of the ways to reduce the energy consumption of sensor nodes and,
-% consequently, increase the lifetime of a WSN, is to make the operation of the
-% network use the principle of locality of the sensors, that is, the network must
-% take into account that the proximity of location of sensors, in general, also
-% means an approximation of sensed values \cite{Yick2008}, especially when these
-% relate to environmental data. The grouping of sensors in clusters is the main
-% technique used to take advantage of the principle of spatial locality in
-% reducing the energy consumption of the nodes, because, in this manner, one can
-% use only a few representative nodes from each cluster to read the sensed data
-% values in a certain region (cluster) in which sensors are spatially correlated.
-% Several works have proposed the use of such a technique, with different
-% approaches \cite{Chu2006, Villas2012, Singh2010, Liu2007, Shah2007}. However,
-% sometimes, even sensors that are not close physically show similar data reading
-% patterns. In such cases, a better alternative would be to use clustering
-% based on \textit{Behavioral Correlation}, where the network would be able to
-% identify similar patterns of sensor readings even in geographically distant
-% nodes.
 
 Grouping sensors in clusters is the main technique used to take advantage of the
-principle of spatial locality in reducing the energy consumption in WSNs. This
+principle of spatial locality for reducing the energy consumption in WSNs. This
 is because one can use only a few representative nodes from each cluster to
 sense data in a given spatial region (cluster) in which sensors are spatially
 correlated.
 Several works have been proposed in order to use that technique, with different
 approaches \cite{Chu2006, Villas2012, Singh2010, Liu2007, Shah2007}.
-Nonetheless, in several scenarios sensors, which are not spatially close to each
-other, may have similar data reading patterns. In such cases, a better
-alternative would be to use clustering based on \textit{Behavioral Correlation},
-where the network would be able to identify similar patterns of sensor readings
-even in geographically distant nodes.
 
-In this paper, we present new approach for clustering sensors in WSNs. The main
-features of the proposed approach are: {\it (i)} Cluster formation based on the
-\textit{Behavioral Correlation} of the sensors, which, in turn, is computed 
-from the time series of sensor readings by applying a \textit{Dissimilarity
-Measure}, and; {\it (ii)} the use of a linear regression model for the temporal
-suppression of sensed data through the maximum error level (threshold) desired
-by the user used to control the data to be sent to the sink. Furthermore, two
-different approaches to select of active nodes (scheduling) in each cluster have
-been implemented: Representative Nodes (RNs) and Cluster Heads (CHs).
+%In continuous environmental monitoring applications the sensors in a dense WSN
+%generate a data stream that must be transmitted to a Sink to be processed and
+%stored in a Fusion and Decision Center (FDC). It is widely noted [x, x, x] that
+%this data stream exhibits strong spatio-temporal correlation.
+
+Nonetheless, in several scenarios sensors, which are not spatially close to each
+other, may have similar data reading patterns. In order to illustrate such a
+claim consider a dense WSN deployed to monitor forest fires. 
+%in which a magnitude of temperature is monitored.
+Now, suppose a scenario in which the monitored region is affected by dozens of
+small forest fires. Figure \ref{contour_lines} depicts a possible temperature
+contour lines graph for this hypothetical situation. Observe that the contour
+lines in Figure \ref{contour_lines} form several closed regions representing
+areas which may have small forest fire areas, where it is very likely that the
+temperature measurements of sensors in those spatially separated regions present
+high correlation. For that reason, we claim that in such cases, a better
+alternative would be to use sensor clustering strategy based on
+\textit{Behavioral Correlation}.
+
+The idea behind the concept of {\it behavioral correlation} is to identify
+similar patterns of sensor readings even in sensors which are geographically
+distant from each other. Thus, one could apply a Behavioral Correlation
+Clustering (BCC) technique to group sensors which are spatially separated into a
+single cluster, in contrast to existing spatio-temporal correlation techniques.
+The BCC technique clusters sensors for which the forecasting models of sensed
+data time series are approximately the same independent of spatial proximity of
+sensors.
+
+%Note that the BCC naturally captures the spatial grouping, if it
+%exists, since the correlation is between the sensor time series. Several
+%measures of similarity, dissimilarity or statistical correlation can be used to
+%group the sensors based on the its time series. Also, several strategies can be
+%used to trigger the evaluation of clustering: periodic, sliding windows,
+%triggering threshold and others.
+
+%Note that behavioral correlation clustering (BCC) is enabled by centralized
+%clustering, being more difficult to implement in distributed correlation or
+%clustering approaches, among other things, due to the limited range of sensor
+%transmissions.
+
+%\begin{figure}[!htb]
+%\centering
+%	\includegraphics[scale=0.7]{I1.png}
+%    \caption{Forest fire photography}
+ %   \label{lab}
+%\end{figure}
+
+\begin{figure}[!htb]
+\centering
+	\includegraphics[scale=0.7]{I2.png}
+    \caption{Contours lines of temperature}
+    \label{contour_lines}
+\end{figure}
+
+In this sense, in this paper, we present new approach for clustering sensors in
+WSNs. The main features of the proposed approach are: {\it (i)} Cluster
+formation based on the \textit{Behavioral Correlation} of the sensors, which, in
+turn, is computed from the time series of sensor readings by applying a
+\textit{Dissimilarity Measure}, and; {\it (ii)} the use of a linear regression
+model for the temporal suppression of sensed data through the maximum error
+level (threshold) desired by the user used to control the data to be sent to the
+sink. Furthermore, two different approaches to select of active nodes
+(scheduling) in each cluster have been implemented: Representative Nodes (RNs)
+and Cluster Heads (CHs).
 
 % Another way to reduce the energy consumption of a sensor network, thereby
 % increasing the its lifetime, is using the principle of temporal locality
@@ -632,24 +295,19 @@ been implemented: Representative Nodes (RNs) and Cluster Heads (CHs).
 
 The remainder of this document is organized as follows. [To be described\ldots]
 
-Hereafter, we will examine some related works.
 
 \section{Related Work}
 
-In \cite{Vuran2004}, give M representative nodes to send data from the
-whole set of N sensors (where $M < N$), based on criteria of calculation of a
-Distortion function ($D(M)$) between the sensed values using a threshold
-(\textit{distortion bound}) of maximum allowed distortion ($D_{max}$).
+In \cite{Vuran2004}, proposes a strategy to cluster sensors in WSNs. The idea is
+the following: given a set of N sensors, M nodes, with $M < N$, are chosen to
+send data. The M representative nodes are defined based on the application of a
+distortion function ($D(M)$) on sensed data.
 The spatial distance between the nodes (representative) directly influences the
-calculation of the distortion function through the value of the correlation
-coefficient between the values sensed by each node.
-The $D(M)$ shows the relationship between the number of M nodes contained in a
-region with N nodes ($M < N$) and the correlation coefficients between the node
-$n_i$ and $n_j$ and the source event S and the node $n_i$.
+computation of the distortion function by means of a correlation coefficient.
 That work does not take into account the energy capacity of each node as a
-criterion for choosing the representative nodes, although this is a very
-important factor due to the restrictive characteristics regarding the energy
-consumption of the nodes in a WSN.
+criterion for choosing representative nodes, although this is a very important
+factor due to the restrictive characteristics regarding the energy consumption
+of the nodes in a WSN.
 
 In EAST \cite{Villas2012}, sensors are grouped into two levels, under a spatial
 correlation approach, while the leader and the representative nodes perform a
@@ -770,212 +428,42 @@ them. In this way, such approach becomes inappropriate for sensor networks.
 %\section{Proposed Approach}
 \section{Implementing Behavioral Correlation in WSNs}
 
-Our approach, called \textit{BTCWSN} - Behavio-Temporal Correlation in Wireless
-Sensor Networks, uses two simple principles:
-{\it (i)} Cluster formation (or clustering) based on the \textit{behavioral
-correlation} of the sensors (optionally using also spatial correlation),
-obtained from the time series of sensor readings with use of
-\textit{Dissimilarity Measure} \cite{Liu2007}, whence representative nodes are
-chosen, reduce sending data over the network, and {\it (ii)} Using a linear
-regression model for the temporal suppression of sending data (calculation of
-the regression equation coefficients) through the maximum error level
-(threshold) desired by the user used to control the data to be sent to the sink.
+In this section, the proposed approach for clustering sensors in a WSN based on
+the notion of behavioral correlation. Our approach, called Behavioral
+Correlation in Wireless Sensor Networks (\textit{BCWSN} for short), is based on
+clustering sensors by means of behavioral correlation, which is in turn computed
+from the time series of sensor readings, and on using a linear regression model
+for the temporal suppression of data to be sent to the sink node.
 
-The traditional Spatial Correlation is related to the idea that the physical
-proximity between sensors leads the approximate measurements (values) sensed data for
-these sensors, i.e. the values read by such sensors also have a certain margin
-of difference between their values, which is known as "principle of spatial
-locality". That is, one can infer that from the capture of some sensors readings
-(located in some regions of sensing space), it is possible to obtain, roughly,
-the values of the readings of other sensors in its surroundings.
-Our method exploits \textit{Dissimilarity Measure} \cite{Liu2007} in order to
-cluster the sensors by \textit{behavioral correlation}, which takes into account
-the correlation between the historical values of the sensors and not only the
-spatial proximity of the sensors (optional).
-
-On the other hand, the Temporal Correlation still exists, such that the various
-readings that a sensor performs within a certain time interval, also exhibit a
-certain approximation of their values, what is known as "principle of temporal
-locality". In this way, it is possible predict (with a certain margin of
-error) sensed values through the use of an equation of regression, reducing the
-number of required readings during a time interval. When together the two
-concepts described above, we obtain the basic principle used in our algorithm,
-called "Behavio-Temporal Correlation".
-
-The functioning of the algorithm is based on two principles: {\it (i)} formation
-of clusters from the correlation of behavioral data (optionally using spatial
-correlation), obtained from the time series of readings of the sensors and the
-use of \textit{Dissimilarity Measures}, providing that representative nodes
-reduce sending data over the network and {\it (ii)} using a linear regression
-model for temporal suppression of sending data (calculation of the coefficients
-of the regression equation), through the maximum error level (threshold) desired
-by the user used to control the data being sent to the sink.
-
-In addition, two different approaches for scheduling intra-cluster were
-implemented. In the first one, called Representative Nodes (RNs), only one node
-in each cluster is chosen at each time (by the sink node) to represent that
-cluster, making data sensing and predictions. In the second method, called
+Two different approaches for intra-cluster sensor node scheduling have been
+implemented in order to uniformly distribute the sensing activity amor the
+sensor nodes of a cluster. In the first one, called Representative Nodes (RNs),
+only one node in each cluster $C_{i}$ is chosen at each time to represent that
+cluster. In other words, a representative node is responsible for sensing and
+predicting data in $C_{i}$ for given time interval. In the second method, called
 Cluster Heads (CHs), on the other hand, one sensor node (the CH) in each cluster
-is selected to manage the data readings that are made by all other nodes in
-cluster.
+$C_{i}$ is selected to coordinate the data sensing activity carried out by all
+nodes in $C_{i}$.
 
-\subsection{Description of Energy consumption reduction algorithm of sensors using 
-Behavio-Temporal Correlation (BTCWSN):}
+\subsection{The BCWSN Mechanism}
 
-Initially, the network needs to be configured from the setting of its working
-parameters. To this end, it is necessary to specify:
 
-\begin{itemize}
-  \item The size of the initial slot time, i.e. the amount of cycles that each
-sensor must monitor/send to the sink initially;
-  \item The type of data to be sensing. For example: 't' for "temperature",
-'h' for "humidity", 'l' for ``luminosity'' or 'v' for "voltage";
-  \item The threshold of acceptable temporal error (percentage) for the
-determination of us sensors, which can be between 0.0 (does not accept mistakes)
-and 1.0 (accepts any error);
-  \item The threshold of acceptable magnitude difference (Spatial error) for the
-determination of sensors nodes;
-  \item The maximum distance acceptable for the formation of clusters, that is,
-the greatest distance possible between two sensors so that they are classified
-as belonging to the same cluster. If this is equal to zero (0.0), such a
-distance limit will not be considered (\textit{behavioral correlation});
-  \item The type of cluster sensing configuration to be chosen, which may be of
-the type:
-	\begin{enumerate}
-	  	\item Representative Nodes (RN), where only these knots (one per cluster)
-	  	will be sensing while the others are in a "spleep state"; and
-		\item Cluster Heads (CH), where all nodes in the cluster are sensing
-		(including own CH) and send the data to the CH, which in turn concentrates the
-		information before send them to the sink;
-	\end{enumerate}
-  \item The minimum occupancy rate per cluster, i.e. the average number of
-sensors per cluster on the network, which is used to fire the merge (regrouping)
-process;
-  \item The maximum number of acceptable "novelties per sensor" (NPS), i.e. the
-maximum amount prediction errors that do not generate recalculation messaging
-of the coefficients of Regression Equation for a given sensor node (be it a
-representative node or an any node/Cluster Head);
-  \item Only for the case of the use of Cluster Heads, the maximum number of
-acceptable "novelties by cluster" (NPC), that is, the maximum amount of
-prediction error messages received by their respective CH (sent by the
-respective sensors cluster nodes) that do not generate message submission
-(recalculation of the coefficients of the regression equation) of CH for sink.
-\end{itemize}
+The algorithm BCWSN can be divided into seven steps described next.
 
-Some parameters, however, are automatically configured by the algorithm, such as
-example:
 
-\begin{itemize}
-  \item The maximum number of predictions/readings that each representative
-sensor node must perform even the choice of a new representative node for that
-cluster. This parameter is configured /calculated in a manner inversely
-proportional to the size of the cluster in question (i.e. the number of sensor
-nodes that belong to the same cluster) for reasons of energy balance from 
-nodes within a same cluster;  
-\end{itemize}
+\subsubsection{Learning Stage}
 
-The algorithm can be divided into nine steps given below:
+In this step, the sink node collects sensed data from all sensors belonging to
+the network in order to compute the initial cluster formation and the
+coefficients of the linear regression equation (see Section \ref
+{data-predict}). Thus, the sink node firstly sends a broadcast message to all
+nodes of the network, requesting the following data from sensors:
+battery level, spatial location and sensed values. The amount of data for the
+learning stage is a parameter, denoted initial slot time, which should be
+defined by the application expert.
 
-\begin{enumerate}
-  \item Initial Readings: Set of readings (rounds) to be performed to load the
-initial data into the sink before it can combine sensors into clusters, set the
-Representative Nodes or Cluster Heads and calculate the coefficients of the
-regression equation.
-  \item Clustering Sensor Nodes - Behavioral Correlation: After the sink get the
-baseline data (initial readings), the next step is to analyze such data (time
-series) sent by all sensor nodes to classify them into Clusters of accordance
-with the \textit{Dissimilarity Measures} (DM) read data passed. The DM is based
-on 2 (or 3) criteria\footnote{Depending of the kind of \textit{behavioral
-correlation} desired: with Spatial Correlation or without Spatial Correlation}
-to decide if two sensors are in a same cluster or not.
-  \item Determination of Representative Nodes / Cluster Heads: Once the sensors
-are classified in clusters, the Representative Nodes or Cluster Heads of each
-cluster will be chosen through 2 criteria, applied to all nodes of each sensor
-clusters:
 
-  \begin{enumerate}
-    \item the sensor with a higher battery energy level
-    \item the sensor with the shortest distance (the most
-    next in number of hops) from the sink node (in the event of a tie)
-  \end{enumerate}
-
-  \item Calculation of the Coefficients of the Regression Equation and the
-Maximum Amount of Predictions to be Performed: Once chosen the Representative
-Nodes/Cluster Heads of each cluster, the sink must compute the coefficients of
-the regression equation. If Representative Nodes are used, must also be
-calculated the maximum number of predictions/readings each representative sensor
-node must run. Then, the sink must inform these data for the respective
-representative sensor nodes.
-  \item Sensing Loop: In the case of Representative Node, each (Representative)
-Node should start running its predictions by checking the respective thresholds:
-
-  \begin{enumerate}
-    \item maximum number of predictions to be performed by the Representative
-    Node, and
-    \item maximum number of prediction errors that can happen without occurs
-    sink notification by this fact
-  \end{enumerate}
-  
-In the case of use of Cluster Heads, all nodes of each cluster should start running
-their predictions, noting the following thresholds:
-
-  \begin{enumerate}
-    \item maximum number of prediction errors that can happen without occurs the
-    notification of respective Cluster Head for that fact, and
-    \item maximum number of prediction error notifications that can happen without occur
-    the sink notification by part of the Cluster Head due to this fact
-  \end{enumerate}
-
-  \item Report of "novelties": If the maximum number of prediction errors
-allowed is exceeded, the representative sensor node (or the Cluster Head) shall
-report such fact by sending message for the sink node, which must choose one of
-the two following actions:
-  
-  \begin{enumerate}
-    \item Recalculate the coefficients of the regression equation that
-representative node, using the new reading values submitted, or
-    \item Choose a new representative node, based on the selection criteria of
-representative nodes presented above.
-  \end{enumerate} 
-
-  \item Battery level update of Representative Nodes (RNs) in sink: Whenever a
-sensor node (representative node or cluster head) send a message to sink, this
-should contain the battery level (current) in the sender, in such a way that the
-sink can use this information to re-sort such sensors for that with
-higher energy level is chosen as Representative Node/Cluster Head of the
-cluster.
-  
-  \item Cluster split process: When the sink check that variations in the
-measurements of sensors of a same cluster are above a certain threshold, it must
-raise an process of division (split) of such a cluster so that the old one form
-(2 or more) new clusters, whose measurements of the sensors are within the limit
-of spatial error allowed.
-  
-  \item Restructuring (merge) clusters: When the number of (divisions of)
-clusters achieve a certain ceiling estimated, then the sink should fire a global
-process of clusters restructuring, with possible groupings (merge) from
-sensors in old different clusters into new clusters.
-  
-\end{enumerate}
-
-We will then describe each of these steps above, in more detail:  
-  
-\subsubsection{Initial Readings}
-
-In this step, the sink node (sinkhole) will send a broadcast message (using a
-protocol of 'flooding') to all nodes of the network of sensors, which will, in
-turn, respond to this message with the requested data, so that the sink can
-capture a certain set of 'n' data preliminaries (where 'n' is the size of the
-initial timeslot) of all active sensors (containing basically the absolute value
-read, the timestamp of the reading, the battery level of the sensor, the round
-in the reading and the spatial location of the sensor) which will serve as a
-basis for initial formation of the clusters, to be held centrally by the sink.
-After the formation of the clusters and choice the representative nodes/cluster
-heads, such data will be used as parameters to the calculation of the
-coefficients of regression equations of representative nodes or of each of the
-nodes of each cluster formed.
-
-\subsubsection{Clustering Sensor Nodes - Behavioral Correlation}
+\subsubsection{Clustering Sensor Nodes}
 
 The calculation of \textit{Dissimilarity Measures} between the sensors as
 described in \cite{Liu2007}, is accomplished by the sink node, as a criterion
@@ -1009,12 +497,10 @@ sink receives a notification of novelties threshold exceeded of a sensor node
 between all nodes of this cluster to check whether it is necessary to perform a
 split in such a cluster.
 
-\subsubsection{Determination of Representative Nodes}
-
-From the separation of network sensors in clusters (groups), the sink will hold
-two internal ratings in the nodes of each cluster sensors. Such classifications
-are described below:
-
+Once the sensors
+are initially grouped into clusters, Representative Nodes or Cluster Heads of each
+cluster will be chosen through 2 criteria, applied to all nodes of each sensor
+clusters:
 \begin{enumerate}
     \item The nodes are ordered by the criterion of highest energy level (higher
     battery load), largest to smallest
@@ -1029,8 +515,8 @@ the sink) will be initially chose as Representative Node. This process of
 choosing of RNs is repeated for each cluster, whenever a new notification is
 received by the sink.
 
-\subsubsection{Calculation of the coefficients of the Regression Equation and
-the amount Maximum of Predictions to be performed}
+\subsubsection{In-Network Data Prediction}
+\label{data-predict}
 
 The maximum amount of predictions (reading/prediction loops) for each node
 (Representative of each cluster) will be calculated (individually) as being the
@@ -1041,30 +527,36 @@ energy expenditure between the sensors of the same cluster, causing those
 sensors that have similarities in their readings (of a same cluster) to switch
 on the monitoring of the area covered by these sensors, increasing the lifetime
 total of each cluster and thus contributing to increase the total life time of
-the network.
-The coefficients calculation of the Regression Equation (A and B) is held by the
-sink, for each of the Representative Nodes chosen by using the following
-formulas:
-
-$$
-A = \bar{S} - B\bar{t}
-$$
-$$
-B = \frac{\sum(t_i-\bar{t})(S_i-\bar{S})}{\sum(t_i-\bar{t})^2}
-$$
-
-where
-$\bar{S}$ is the average of the sensing values,
-$\bar{t}$ is the average of the moment of time at which the sensing was,
-$S_i$ is the ith sensing value and 
-$t_i$ is the ith moment of sensing time.
+the network. The in-network prediction implemented by BCWSN relies on the
+following linear regression equation: $\hat{S}(t) = a + bt$.
+The time $t$ is an independent variable. $\hat{S}(t)$ represents the estimated
+value of $S(t)$ and is variable with $t$. Parameter $a$ is the interceptor-t
+(value of $\hat{S}(t)$ for $t=0$) and $b$ is the stretch slope, and are computed
+as follows:
+\begin{equation}
+	a = \frac{1}{N}\left(\sum S_{i} - b\sum t_{i} \right) = \bar{S} - b\bar{t},
+\end{equation}
+\vspace*{-.3cm}
+\begin{equation}
+	b = \frac{\sum \left(t_{i} - \bar{t}\right)\left(S_{i} - \bar{S}\right)}{\sum \left(t_{i} - \bar{t}\right)^{2}}.
+\end{equation}
 
 After the calculation of the maximum amount of predictions and the coefficients
 of the regression equation, the sink sends this data through a message addressed
 to the respective Representative Sensor Node, who, in turn, should begin the
 process of sensing (reading/prediction).
 
-\subsubsection{Implementation of Sensing Loop}
+\subsubsection{Sensing}
+
+As already mentioned, two different approaches for intra-cluster sensor node
+scheduling have been implemented in order to uniformly distribute the sensing
+activity amor the sensor nodes of a cluster. In the first one, called
+Representative Nodes (RNs), only one node in a cluster $C_{i}$ is responsible
+for sensing and predicting data in $C_{i}$ for given time interval. In the
+second method, called Cluster Heads (CHs), on the other hand, one sensor node
+(the CH) in each cluster $C_{i}$ is selected to coordinate the data sensing
+activity carried out by all nodes in $C_{i}$.
+
 
 At this stage, the Representative Node enter into reading / prediction loop, in
 such a way that every step, they must verify that the read value (sensing) for
@@ -1100,7 +592,6 @@ must check one of the following possibilities:
     predictions without restarting)
 \end{enumerate}
 
-\subsubsection{Battery Level update of Representative Nodes / Cluster Heads}
 
 Whenever a RN / CH send a message to the sink (by reason of the novelties report
 or by have reached the maximum number of loops of prediction), this message must
@@ -1294,89 +785,6 @@ Diff (A-B) &$-23,98\%$ &$-46,01\%$ &$-18,90\%$ \\
 \end{center}
 \end{table}
 
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation Results}
-%\label{fig_sim}
-%\end{figure}
-
-% Note that IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
-
-
-% An example of a double column floating figure using two subfigures.
-% (The subfig.sty package must be loaded for this to work.)
-% The subfigure \label commands are set within each subfloat command, the
-% \label for the overall figure must come after \caption.
-% \hfil must be used as a separator to get equal spacing.
-% The subfigure.sty package works much the same way, except \subfigure is
-% used instead of \subfloat.
-%
-%\begin{figure*}[!t]
-%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
-%\label{fig_second_case}}}
-%\caption{Simulation results}
-%\label{fig_sim}
-%\end{figure*}
-%
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
-
-
-% An example of a floating table. Note that, for IEEE style tables, the 
-% \caption command should come BEFORE the table. Table text will default to
-% \footnotesize as IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
-
-
-% Note that IEEE does not put floats in the very first column - or typically
-% anywhere on the first page for that matter. Also, in-text middle ("here")
-% positioning is not used. Most IEEE journals/conferences use top floats
-% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
-% command of the stfloats package.
-
-
 
 \section{Conclusion}
 
@@ -1394,68 +802,16 @@ total number of sensor readings.
 % conference papers do not normally have an appendix
 
 
-% use section* for acknowledgement
-\section*{Acknowledgment}
-
-
-The authors would like to thank...
-
-
-
-
-
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-
-% \begin{thebibliography}{1}
-% 
-% \bibitem{IEEEhowto:kopka}
-% H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-%   0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-% 
-% 
-% \end{thebibliography}
-
-%
-% The following two commands are all you need in the
-% initial runs of your .tex file to
-% produce the bibliography for the citations in your paper.
-%\bibliographystyle{abbrv}
-
-% \bibliographystyle{unsrt}
-% \bibliography{ISCC2014rodrigues_brayner_maia}  % ISCC2014rodrigues_brayner_maia.bib is the name of the Bibliography in this case
 
 \bibliographystyle{IEEEtran}
-\bibliography{IEEEabrv,ISCC2014rodrigues_brayner_maia}  % ISCC2014rodrigues_brayner_maia.bib is the name of the Bibliography in this case
+\bibliography{IEEEabrv,ISCC2014rodrigues_brayner_maia}  
+% ISCC2014rodrigues_brayner_maia.bib is the name of the Bibliography in this case
 % You must have a proper ".bib" file
 %  and remember to run:
 % latex bibtex latex latex
 % to resolve all references
 
 
-
-
-% that's all folks
 \end{document}
 
 
