@@ -223,9 +223,9 @@ other, may have similar data reading patterns. In order to illustrate such a
 claim consider a dense WSN deployed to monitor forest fires. 
 %in which a magnitude of temperature is monitored.
 Now, suppose a scenario in which the monitored region is affected by dozens of
-small forest fires. Figure \ref{contour_lines} depicts a possible temperature
+small forest fires. Figure \ref{fig:contour_lines} depicts a possible temperature
 contour lines graph for this hypothetical situation. Observe that the contour
-lines in Figure \ref{contour_lines} form several closed regions representing
+lines in Figure \ref{fig:contour_lines} form several closed regions representing
 areas which may have small forest fire areas, where it is very likely that the
 temperature measurements of sensors in those spatially separated regions present
 high correlation. For that reason, we claim that in such cases, a better
@@ -264,7 +264,7 @@ sensors.
 \centering
 	\includegraphics[scale=0.7]{I2.png}
     \caption{Contours lines of temperature}
-    \label{contour_lines}
+    \label{fig:contour_lines}
 \end{figure}
 
 In this sense, in this paper, we present new approach for clustering sensors in
@@ -280,7 +280,7 @@ and Cluster Heads (CHs).
 
 % Another way to reduce the energy consumption of a sensor network, thereby
 % increasing the its lifetime, is using the principle of temporal locality
-% \cite{Brayner2011}.
+% \cite{MaiaSAC2013}.
 % In this way, in an external environment, without artificial interventions, most
 % of the time, one can predict the values to be measured by the sensors with a
 % certain margin of error from a history of readings and with the application of a
@@ -634,7 +634,7 @@ sensors.
 In our tests, we done a comparative analysis between the following approaches:
 1) On approach Naive \cite{Madden2005}, all sensors are network data reads
 (sensing) and send immediately these data to the sink; 2) On approach using
-Temporal Correlation (Adaga-P*) \cite{Brayner2011}, all nodes are sensors to
+Temporal Correlation (Adaga-P*) \cite{MaiaSAC2013}, all nodes are sensors to
 read data from the environment, but only those whose readings submit values
 outside the margin of error (user-defined threshold) in relation to values
 predicted by the use of a regression equation (whose coefficients are calculated
