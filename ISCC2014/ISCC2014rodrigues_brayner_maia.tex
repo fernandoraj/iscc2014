@@ -112,18 +112,32 @@ jose.maia@uece.br}}
 \begin{abstract}
 
 Sensor clustering is an efficient strategy to reduce the number of messages
-transmitted to the sink in a multi-hop wireless sensor network. Thus far
-grouping sensors in clusters is by applying the principle of spatial locality,
-which may ensure spatial correlation for data sense by sensors within a given
-area. Nonetheless, in several scenarios sensors, which are not spatially close
-to each other, may have similar data reading patterns.
-In this work we present a new approach to cluster sensors in WSN based on the
-behave of historical data collected by sensors. Instead of using the spatial
-distance among sensors for clustering them, the proposed approach the concept of
-behavioral correlation to group sensors.
-Furthermore, two scheduling intra-clustering methods are tested: Cluster Heads
-and Representative Nodes. These techniques are compared with each other and also
-about the effects on them of incorporating mechanism of behavioral correlation.
+transmitted to the sink in a multi-hop Wireless Sensor Network. Thus far
+grouping sensors in clusters is implemented by applying the principle of spatial
+locality, which may ensure spatial correlation for data sense by sensors within
+a given area. Nonetheless, in several scenarios sensors, which are not spatially
+close to each other, may have similar data reading patterns.
+In this work we present a new approach to cluster sensors in WSN, denoted {\it
+BCWSN} (Behavioral Correlation in WSN), based on the "behave" of recent
+historical data collected by sensors. Instead of using the spatial distance
+among sensors for clustering them, the proposed approach uses the concept of
+behavioral correlation to group sensors, that takes into account the concepts of
+difference in magnitude and trend of the analyzed data.
+Furthermore, two scheduling intra-clustering methods are tested: Representative
+Nodes and Cluster Heads. These techniques, incorporating mechanism of behavioral
+correlation, are compared with each other and also with the naive strategy and
+with an approach based on temporal correlation.
+In order to validate our approach, simulations with a prototype implemented in
+Sinalgo have been conducted over real temperature data. The results point to
+gains of up to 69,02\% in terms of reduction in transmission of messages and
+45,12\% of reduction in data sensing, while the RMSE remains roughly stable. To
+the best of our knowledge, we believe that our proposal brings gains in energy
+efficiency for WSNs.
+
+% The best way to improve prediction accuracy is by decreasing prediction errors,
+% using the same energy amount than the second version, but there is a trade-off
+% between prediction accuracy and energy consumption.
+
 \end{abstract}
 
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
@@ -277,6 +291,9 @@ level (threshold) desired by the user used to control the data to be sent to the
 sink. Furthermore, two different approaches to select of active nodes
 (scheduling) in each cluster have been implemented: Representative Nodes (RNs)
 and Cluster Heads (CHs).
+
+Hence, special sensor nodes only transmit data which are novelties for the
+regression model applied by our propose.
 
 % Another way to reduce the energy consumption of a sensor network, thereby
 % increasing the its lifetime, is using the principle of temporal locality
@@ -607,16 +624,15 @@ loop, in such a way that every step, they must verify that the read value
 predicted by calculating the regression equation from that node. If the limits
 of error are respected, then the node's regression equation encountered a hit
 (hit); otherwise, it must record an error (miss). If the number of errors
-(misses) exceeds a certain limit (pre-set), then such node must report this fact 
-to someone.
+(misses) exceeds a certain limit (pre-set), then such node must report this fact.
 
 
 
 In RN mode, only the Representative Nodes (one for cluster) will receive the
-coefficients and will execute the process of sensing (reading/prediction loop).
+coefficients and execute the process of sensing (reading/prediction loop).
 In case of a miss, the RN must report the sink directly with "Novelties".
 Otherwise, the Representative Node must perform such process of
-reading/verifying the prediction to the limit the number of predictions made for
+reading/verifying the prediction to/until the limit of predictions made for
 that Representative Node by sink, calculated in the previous phase.
 
 In CH mode, all sensors (in each cluster) will receive their respective
