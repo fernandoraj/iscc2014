@@ -494,7 +494,7 @@ active nodes, having major impact on energy expediture from nodes activation.
 \subsection{The BCWSN Mechanism}
 
 
-The algorithm BCWSN can be divided into seven steps described next.
+The algorithm BCWSN can be divided into six steps described next.
 
 
 \subsubsection{Learning Stage}
@@ -575,11 +575,12 @@ Otherwise, they will be in different clusters.
 
 Thus, at the end of this process, all sensors nodes have been classified in
 clusters by the sink, according to initial readings sent by sensor nodes to the
-sink and the \textit{Similarity Measures}, using the \textit{behavioral
-correlation} proposed. Whenever the sink receives a notification of novelties
-threshold exceeded of a sensor node (that can be a RN or a CH), it (sink)
-recalculates the similarity measures between all nodes of this cluster to
-check whether it is necessary to perform a split in such a cluster.
+sink and the \textit{Similarity Measures} (based on M and T parameters, seted by
+the expert), using the \textit{behavioral correlation} proposed.
+Whenever the sink receives a notification of novelties threshold exceeded of a
+sensor node (that can be a RN or a CH), it (sink) recalculates the similarity
+measures between all nodes of this cluster to check if it is necessary to
+perform a split in such a cluster.
 
 Once the sensors are initially grouped into clusters, Representative Nodes or
 Cluster Heads of each cluster will be chosen through 2 criteria, applied to all
@@ -614,7 +615,7 @@ notification is received by the sink.
 % total of each cluster and thus contributing to increase the total life time of
 % the network. 
 The in-network prediction implemented by BCWSN relies on the
-following linear regression equation: $\hat{S}(t) = a + bt$ \cite{MaiaACR2013}.
+following linear regression equation: $\hat{S}(t) = a + bt$.
 The time $t$ is an independent variable. $\hat{S}(t)$ represents the estimated
 value of $S(t)$ and is variable with $t$. Parameter $a$ is the interceptor-t
 (value of $\hat{S}(t)$ for $t=0$) and $b$ is the stretch slope, and are computed
@@ -632,7 +633,7 @@ regression equation to predict the sensed values, such that, if the value read
 by the sensor is within the limit stipulated maximum error, then the sensor will
 not need to send data to sink (as it is able to calculate the regression
 equation through a good approximation for the values), and thus the network is
-saving power of the sensors because they do not need to send such messages.
+saving power of the sensors because they do not need to send such messages \cite{MaiaACR2013}.
 
 After the calculation of the coefficients from regression equation for each
 corresponding node (depending of the case, if Representative Nodes, only this
@@ -824,7 +825,7 @@ BCWSN-CH &0.3365 &0.0217 &0.366 &0.229 \\
 \end{table}
 
 \begin{table}[h!]
-\caption{Evaluation results - Approach x Num Msg per Round (1000 cycles)}
+\caption{Evaluation results - Approach x Number of Messages per Round (1000 cycles)}
 \label{tab:num-msg}
 \begin{center}
 \begin{tabular}{|l||l|l|l|l|}
@@ -846,7 +847,7 @@ BCWSN-CH &5.14 &9.30 &55 &0 \\
 \end{table}
 
 \begin{table}[h!]
-\caption{Evaluation results - Approach x Sens Reading per Round (1000 cycles)}
+\caption{Evaluation results - Approach x Sensor Readings per Round (1000 cycles)}
 \label{tab:sens-read}
 \begin{center}
 \begin{tabular}{|l||l|l|l|l|}
