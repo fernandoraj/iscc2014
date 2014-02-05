@@ -189,20 +189,6 @@ chains), infrastructure protection (e.g., water distribution), battlefield
 awareness (e.g., multi-target tracking) and context-aware computing (e.g.,
 intelligent home) applications.
 
-
-%WSNs can be categorized into three types, depending on the application or the
-%use pattern of the network. Thus, there exist WSNs for: {\it (i)} responding to
-%user queries \cite{Brayner2007}; {\it (ii)} continuously sensing (stream), or;
-%{\it (iii)} monitoring of certain sporadic events \cite{Ren2007}. These uses are
-%not mutually exclusive, i.e. in a WSN that responds to queries, one can submit
-%queries to request data to be sensed with a certain frequency (continuous
-%sensing) and even data whenever certain events occur. The case that stands out
-%as being the most critical usage is exactly the continuous sensing, because, in
-%this case, every certain time interval programmed, the sensor nodes need to take
-%readings and send the values read through the network, passing from node to
-%node, until these data reach the sink \cite{Villas2012}.
-
-
 In spite of advances in WSN technology, a critical key point is still the
 energy consumption of sensor nodes. It is well known that communication among
 sensors is the activity responsible for the bulk of the power consumption. By
@@ -226,7 +212,6 @@ their values (principle of temporal locality). such a feature makes possible to
 predict (with a certain margin of error) sensed values in the future based on
 data collected in the past.
 
-
 Grouping sensors in clusters is the main technique used to take advantage of the
 principle of spatial locality for reducing the energy consumption in WSNs. This
 is because one can use only a few representative nodes from each cluster to
@@ -235,15 +220,9 @@ correlated.
 Several works have been proposed in order to use that technique, with different
 approaches \cite{Chu2006, Villas2012, Singh2010, Liu2007, Shah2007}.
 
-%In continuous environmental monitoring applications the sensors in a dense WSN
-%generate a data stream that must be transmitted to a Sink to be processed and
-%stored in a Fusion and Decision Center (FDC). It is widely noted [x, x, x] that
-%this data stream exhibits strong spatio-temporal correlation.
-
 Nonetheless, in several scenarios sensors, which are not spatially close to each
 other, may have similar data reading patterns. In order to illustrate such a
 claim consider a dense WSN deployed to monitor forest fires. 
-%in which a magnitude of temperature is monitored.
 Now, suppose a scenario in which the monitored region is affected by dozens of
 small forest fires. Figure \ref{fig:contour_lines} depicts a possible temperature
 contour lines graph for this hypothetical situation. Observe that the contour
@@ -262,25 +241,6 @@ single cluster, in contrast to existing spatio-temporal correlation techniques.
 The BCC technique clusters sensors for which the forecasting models of sensed
 data time series are approximately the same independent of spatial proximity of
 sensors.
-
-%Note that the BCC naturally captures the spatial grouping, if it
-%exists, since the correlation is between the sensor time series. Several
-%measures of similarity, dissimilarity or statistical correlation can be used to
-%group the sensors based on the its time series. Also, several strategies can be
-%used to trigger the evaluation of clustering: periodic, sliding windows,
-%triggering threshold and others.
-
-%Note that behavioral correlation clustering (BCC) is enabled by centralized
-%clustering, being more difficult to implement in distributed correlation or
-%clustering approaches, among other things, due to the limited range of sensor
-%transmissions.
-
-%\begin{figure}[!htb]
-%\centering
-%	\includegraphics[scale=0.7]{I1.png}
-%    \caption{Forest fire photography}
- %   \label{lab}
-%\end{figure}
 
 \begin{figure}[!htb]
 \centering
@@ -301,21 +261,6 @@ regression model applied by our proposal. Furthermore, two different approaches
 to select of active nodes (scheduling) in each cluster have been implemented:
 Representative Nodes (RNs) and Cluster Heads (CHs).
 
-
-% Another way to reduce the energy consumption of a sensor network, thereby
-% increasing the its lifetime, is using the principle of temporal locality
-% \cite{MaiaSAC2013}.
-% In this way, in an external environment, without artificial interventions, most
-% of the time, one can predict the values to be measured by the sensors with a
-% certain margin of error from a history of readings and with the application of a
-% regression model
-%  \footnote{Several studies have proposed the use of this
-% technique, taking advantage of predictions across both time and space, with
-% different approaches.} (e.g.: linear, like $\bar{S}(t) = A + B(t)$).
-
-% Furthermore, two different approaches to the way of selection of active nodes
-% (scheduling) in each cluster were implemented: Representative Nodes (RNs) and
-% Cluster Heads (CHs).
 
 The remainder of this document is organized as follows. Section
 \ref{related-work} review related work and point out the differences between our
@@ -374,25 +319,10 @@ from the sensors and then calculates the measure of dissimilarity (previously
 mentioned) for each pair of nodes of the network. $3)$ With the measures
 calculated and the maximum threshold of dissimilarity (max\_dst), the sink
 divides the nodes into clusters. 
-% The sink monitors large variations within a
-% cluster and dynamically adjusts the cluster in response to the changes in
-% spatial correlation.
-% The sink node recalculates the dissimilarity of active sensor nodes (pair to
-% pair) within each group, at the end of each time interval (time slot), after
-% having collected the latest samples of each active sensor node. The current
-% cluster must be divided if the sink node verify that there is at least one
-% active sensor node reporting significantly different data (i.e. outside the
-% max\_dst threshold with other nodes in the same cluster).
-% For computational reasons, it always takes into account the maximum distance
-% between the sensors in the calculation of dissimilarity measures.
 That work does not takes into account the energy reserve of each node as a
 criterion for choosing representative nodes (it is used an algorithm that makes,
 simultaneously, the equitable scheduling - round robin - along with the random
 choice of representatives nodes).
-% Furthermore, the proposal does not deal with the partial reassembly (formation
-% of new clusters from the union of other existing ones) of the nodes that have a
-% low dissimilarity (i.e. high similarity), since this measure could result in a
-% greater energy saving for the nodes of the network.
 
 The spatial correlation through the formation of clusters is addressed in
 \cite{Pham2010} in the form a flooding algorithm where the sink node starts to
@@ -410,21 +340,9 @@ will form the communication backbone between each Cluster Head node and the sink
 are also configured. A scheduling of each cluster is done through round robin in
 order to decide which member node that will be active in each time slot making
 the sensing and sending the data to its respective CH.
-% Each cluster has a CH and a Gateway (GW), which connects that cluster to the
-% neighbor cluster (or with the sink node), in the first case through a Cluster
-% Extend (EC or EXT).
-% Additionally, each cluster can obviously have several members (MEM) and also
-% several EC's.
-% The process of cluster split (formation of new clusters) is delegated to the GW
-% (Gateway) of each cluster, and not the CH or the sink, which do not need to be
-% activated for such a task. 
 The weak point is the process of forming clusters, in
 which there is an intensive exchange of messages, scattering a significant
 amount of energy from the network sensors.
-% in addition to the process of
-% regrouping of nodes (merge) into new unified clusters, which is only fired by
-% the sink using a global approach, i.e. to the entire network, not being
-% predicted, thus, partial regrouping of the clusters.
 
 In \cite{Shah2007}, the spatial correlation is explored by a mechanism called
 the GSC (Gridiron Spatial Correlation), where the sensed region has a Cluster
@@ -436,35 +354,14 @@ active sensors will be chosen according to 2 basic parameters: {\it (i)} the
 proximity of the them regarding the center of the regions correlated and {\it
 (ii)} their energy level must be within a certain threshold, above the ones of
 their closest neighbours. The scheduling of active nodes works through the
-passage of a list by the cluster-head for all nodes 
-% (active and inactive, the latter being momentarily enabled only to receive the list) 
-with the nodes being active in each time slot, where this configuration is only
-changed when one of the active nodes has its energy level below the threshold
-established.
-% Although this solution considers the energy level of the nodes in the choice of the
-% representative nodes (active), and the article mentions that the sizes of the
-% rectangles can be reconfigured, and that they are considered independent of each
-% other, 
+passage of a list by the cluster-head for all nodes with the nodes being active
+in each time slot, where this configuration is only changed when one of the
+active nodes has its energy level below the threshold established.
 That work does not describe how the energy threshold is calculated neither how
 this reconfiguration of the sizes of the rectangles are done and not even gives
 examples of the that.
 
-% In \cite{Chu2006}, the authors propose the use of probabilistic models
-% distributed among the sensor nodes of the network, which would consider the
-% spatial and temporal correlations between the readings of all nodes of the
-% network, through the use of a probability distribution function (PDF) and a
-% transition model, in such a way that only the minimum set of data required would
-% be sent to sink so that the values predicted by such a model do not extrapolate
-% the maximum error boundary predicted. The advantage of this approach is the
-% possibility that the probabilistic models jointly represent several different
-% reading parameters (attributes), such as, temperature, humidity, luminosity,
-% etc. On the other hand, sensor nodes may need to communicate with each other to
-% spatially correlate the data, which brings an energetic cost of intra-sensors
-% communication. In addition, most of the general computation made by the system
-% is executed by the sensors (source), bringing even more energy expenditure for
-% them. In this way, such approach becomes inappropriate for sensor networks.
 
-%\section{Proposed Approach}
 \section{Implementing Behavioral Correlation in WSNs}
 \label{implementing-bcwsn}
 
@@ -559,20 +456,6 @@ greater or equal to the T-trend similarity (\ref{equ:trend}), so these sensors
 will be in the same cluster.
 Otherwise, they will be in different clusters.
 
-% \begin{enumerate}
-%     \item If the maximum distance (\textit{maxDistance}) has value greater than
-% 0 (zero) and the spatial distance between the nodes in question is less than
-% this value, or if the parameter maximum distance (maxDistance) has value equal
-% to 0 (zero), then go to the next step. Otherwise, the sensors are in different
-% clusters.
-%     \item If the average of the differences between the values of the readings
-% of the sensors is less than or equal to magnitude similarity parameter
-% (\textit{spacialThresholdError}) and if the percentage similar trends
-% (growth/decay) of the data of the two sensors is greater or equal to the
-% parameter of trend similarity (\textit{thresholdError}), so these sensors
-% will be in the same cluster. Otherwise, they will be in different clusters.
-%  \end{enumerate}
-
 Thus, at the end of this process, all sensors nodes have been classified in
 clusters by the sink, according to initial readings sent by sensor nodes to the
 sink and the \textit{Similarity Measures} (based on M and T parameters, seted by
@@ -604,16 +487,7 @@ notification is received by the sink.
 \subsubsection{In-Network Data Prediction}
 \label{data-predict}
 
-% The maximum amount of predictions (reading/prediction loops) for each node
-% (Representative of each cluster) will be calculated (individually) as being the
-% starting size time slot divided by amount of nodes in the cluster, namely, will
-% be inversely proportional to quantity sensor nodes in each cluster. The reason
-% for this form of calculation is for there to be a better division (fairer) of
-% energy expenditure between the sensors of the same cluster, causing those
-% sensors that have similarities in their readings (of a same cluster) to switch
-% on the monitoring of the area covered by these sensors, increasing the lifetime
-% total of each cluster and thus contributing to increase the total life time of
-% the network. 
+
 The in-network prediction implemented by BCWSN relies on the
 following linear regression equation: $\hat{S}(t) = a + bt$.
 The time $t$ is an independent variable. $\hat{S}(t)$ represents the estimated
@@ -630,10 +504,11 @@ as follows:
 
 The idea behind this method is that both the sink and the sensor node know the
 regression equation to predict the sensed values, such that, if the value read
-by the sensor is within the limit stipulated maximum error, then the sensor will
-not need to send data to sink (as it is able to calculate the regression
-equation through a good approximation for the values), and thus the network is
-saving power of the sensors because they do not need to send such messages \cite{MaiaACR2013}.
+by the sensor is within the limit stipulated maximum error (error threshold),
+then the sensor will not need to send data to sink (as it is able to calculate
+the regression equation through a good approximation for the values), and thus
+the network is saving power of the sensors because they do not need to send such
+messages \cite{MaiaACR2013}.
 
 After the calculation of the coefficients from regression equation for each
 corresponding node (depending of the case, if Representative Nodes, only this
@@ -671,9 +546,10 @@ this fact.
 
 In RN mode, only the Representative Nodes (one for cluster) will receive the
 coefficients and execute the process of sensing (reading/prediction loop).
-In case of a miss, the RN must report the sink directly with "Novelties".
+In case of a number of errors (misses) greater than the limit error, the RN must
+report the sink directly with "Novelties".
 Otherwise, the Representative Node must perform such process of
-reading/verifying the prediction to/until the limit of predictions made for
+reading/verifying the prediction values to the limit of predictions made for
 that Representative Node by sink, calculated in the previous phase.
 
 In CH mode, all sensors (in each cluster) will receive their respective
@@ -715,29 +591,26 @@ exchange the sensor node to be chosen as RN / CH of the respective cluster.
 
 The sink has the ability to reorganize the clusters automatically according to
 the need. There are two basic forms of the sink reorganizing the clusters. When
-the sink receives novelties from a special node (RN or CH), it checks if the
+the sink receives "Novelties" from a special node (RN or CH), it checks if the
 sensor nodes grouped in that cluster are no longer meeting the minimum
 requirements of similarity required from the parameter configuration data
-(M-magnitude and T-trend). In this case, the sink perform the split of that
-cluster in two or more new clusters, selecting new Representative Nodes or
-Cluster Heads (according with the case) - one for each of the new clusters - in
-accordance with the criteria set out in \ref{clustering-sensors}. In Addition to
-that, the sink must keep a control on the minimun occupancy of sensors per
-cluster, in such a way that the sink is enable of firing the merging of clusters
-if it verify this need. Hence, whenever there are a large number of divisions
-(splits) and the minimum rate occupation clusters (average of nodes per cluster)
-on the network is disregarded, the sink will fire a global process of regrouping
-(merge) or restructuring of the network, such that all nodes can have their
-sensors read data reassessed, and thus can be reconfigured into new clusters
-that represent better the current state of the network. Thus, one avoid that,
-with the passage of time, and consequently, a increasing number of divisions
-(splits) of network clusters, can cause the clusters become smaller, increasing
-the energy expenditure of the network's sensors.
+(M-magnitude and T-trend), by receiving new data readings of sensors from that
+cluster. In this case, the sink perform the split of that cluster in two or more
+new clusters, selecting new Representative Nodes or Cluster Heads (according
+with the case) - one for each of the new clusters - in accordance with the
+criteria set out in \ref{clustering-sensors}. In addition to that, the sink must
+keep a control on the minimun occupancy of sensors per cluster, in such a way
+that the sink is enable of firing the merging of clusters if it verifies this
+need. Hence, whenever there are a large number of divisions (splits) and the
+minimum rate occupation clusters (average of nodes per cluster) on the network
+is disregarded, the sink will fire a global process of regrouping (merge) or
+restructuring of the network, such that all nodes can have their sensors read
+data reassessed, and thus can be reconfigured into new clusters that represent
+better the current state of the network. Thus, one avoid that, in the long term,
+and consequently, with a increasing number of divisions (splitting) of sensor
+clusters, it can cause the clusters become smaller, increasing the energy
+expenditure of the sensors network.
 
-
-% \subsection{BTCWSN-RN - Representative Node Approach}
-% 
-% \subsection{BTCWSN-CH - Cluster Head Approach}
 
 \section{Data and Experiments}
 \label{data-and-experiments}
@@ -745,23 +618,23 @@ the energy expenditure of the network's sensors.
 In our tests, we done a comparative analysis between the following approaches:
 1) On approach Naive \cite{Madden2005}, all sensors are network data reads
 (sensing) and send immediately these data to the sink; 2) On approach using
-Temporal Correlation (Adaga-P*) \cite{MaiaSAC2013}, all nodes are sensors to
-read data from the environment, but only those whose readings submit values
-outside the margin of error (user-defined threshold) in relation to values
-predicted by the use of a regression equation (whose coefficients are calculated
-by sink and sent for each sensor), send your data (Novelties) to the sink; 3) On
-approach BCWSN-RN, after the formation of the clusters based on the
+Temporal Correlation (Adaga-P*) \cite{MaiaACR2013} \cite{MaiaSAC2013}, all nodes
+are sensors to read data from the environment, but only those whose readings
+submit values outside the margin of error (user-defined threshold) in relation
+to predicted values by the use of a regression equation (whose coefficients are
+calculated by sink and sent for each sensor), send your data (Novelties) to the
+sink; 3) On approach BCWSN-RN, after the formation of the clusters based on the
 \textit{Behavioral Correlation} proposed, only the Representative Nodes (RNs) of
 each cluster perform reading and data (sensing) only those who detect a quantity
-of Novelties above the minimum acceptable amount, configured by the user, shall
-send such information (novelty) to the sink; 4) in this latter approach,
+of "Novelties" above the minimum acceptable amount, configured by the user, shall
+send such information (Novelty) to the sink; 4) in this latter approach,
 referred to as BCWSN-CH, after the clustering (also based on the
 \textit{Behavioral Correlation}), all sensors, including the Cluster Heads (CHs)
-choosen, make sensing / prediction, but sending data (Novelties) to the sink is
-divided into two phases: At first, only sensors send novelties to their
-respective Cluster Head after the occurrence of a minimum threshold of Novelties
+choosen, make sensing / prediction, but sending data ("Novelties") to the sink is
+divided into two phases: At first, only sensors send "Novelties" to their
+respective Cluster Head after the occurrence of a minimum threshold of "Novelties"
 (say N) configured by the user; In the second phase, each Cluster Head, in turn,
-only relays novelties for sink after receiving a minimum number of notifications
+only relays "Novelties" for sink after receiving a minimum number of notifications
 from your sensors (let's say M), also configured by the user.
 The approaches 1) and 2) were implemented based on the references. Our proposal
 was implemented through the items 3) and 4).
@@ -769,27 +642,28 @@ To make the performance evaluation of our work, we use the SinalGo version
 v.$0.75.3$ simulator \cite{Sinalgo2007}. The data used for the simulation were
 extracted from the real data of experiment Intel Lab Data \cite{Intel2004}.
 
+
 \section{Results and Discussion}
 \label{results-and-discussion}
 
 Our tests focused mainly on 3 parameters to evaluate the performance of our
-solution (Approaches BCWSN-RN and BCWSN-CH, both described in section
+solution (approaches BCWSN-RN and BCWSN-CH, both described in section
 \ref{data-and-experiments}) compared to the other two approaches (Naive and
 Adaga-P*): 1) The Root Mean Square Error (RMSE) was used to verify the quality
 of the prediction values calculated in the sink with the data sensed values
 actually read by the sensors - the smaller RMSE, better was the approximation in
 sink of data read by the sensors; 2) The Total Number of Messages sent by all
-network sensors, which is an important factor in the energy consumption of the network -
-the lower this amount of messages, the greater lifetime of the network, and 3)
-The Number of Data Readings (Sensing) performed by all sensor nodes, since this
-number is also related to the energy expenditure of sensor nodes, and as the
-messages, the lower this number, the more energy durability of the network.
+sensors network, which is an important factor in the energy consumption of the
+network - the lower this amount of messages, the greater lifetime of the
+network, and 3) The Number of Data Readings (Sensing) performed by all sensor
+nodes, since this number is also related to the energy expenditure of sensor
+nodes, and as the messages, the lower this number, the more energy durability of
+the network.
 
-%Reescrever com base em novos valores de resultados!
 As can be observed in the tables \ref{tab:rmse}, \ref{tab:num-msg} and
 \ref{tab:sens-read}, at the end of 1000 cycles execution of the simulation
 algorithm, the approach 3 (BCWSN-RN) presented a RMSE of $0.5$ (with average
-0.5283 and standard deviation 0,085), while we had an average of transmited
+0.5283 and standard deviation 0,085), while we had an average of transmitted
 messages $96.5\%$ smaller as well as an average of sensor readings $45.12\%$
 lower than the first approach (Naive). Compared with the approach 2 (Adaga-P*),
 approach 3 had an average of messages exchanged $52.51\%$ lower and an average
@@ -808,8 +682,6 @@ $19.41\%$ less.
 \begin{center}
 \begin{tabular}{|l||l|l|l|l|}
 \hline
-% \multicolumn{6}{|c}{\textbf{1 semestre 2011}}\\
-% \hline
 RMSE &AVG &STD &MAX &MIN \\
 \hline\hline
 Naive &0 &0 &0 &0 \\
@@ -830,8 +702,6 @@ BCWSN-CH &0.3365 &0.0217 &0.366 &0.229 \\
 \begin{center}
 \begin{tabular}{|l||l|l|l|l|}
 \hline
-% \multicolumn{6}{|c}{\textbf{1 semestre 2011}}\\
-% \hline
 Num Msg &AVG &STD &MAX &MIN \\
 \hline\hline
 Naive &224 &0 &224 &224 \\
@@ -852,8 +722,6 @@ BCWSN-CH &5.14 &9.30 &55 &0 \\
 \begin{center}
 \begin{tabular}{|l||l|l|l|l|}
 \hline
-% \multicolumn{6}{|c}{\textbf{1 semestre 2011}}\\
-% \hline
 Sensor Reading &AVG &STD &MAX &MIN \\
 \hline\hline
 Naive &53 &0 &53 &53 \\
@@ -875,8 +743,6 @@ BCWSN-CH &41.95 &36.14 &276 &0 \\
 % \begin{center}
 % \begin{tabular}{|l||l|l|l|}
 % \hline
-% % \multicolumn{6}{|c}{\textbf{1 semestre 2011}}\\
-% % \hline
 % Approach (N = 54 sensors) &RMSE &\#Messages &\#Readings \\
 % \hline\hline
 % Naive &0 &222242 &52812 \\
@@ -896,8 +762,6 @@ BCWSN-CH &41.95 &36.14 &276 &0 \\
 % \begin{center}
 % \begin{tabular}{|l||l|l|l|}
 % \hline
-% % \multicolumn{6}{|c}{\textbf{1 semestre 2011}}\\
-% % \hline
 % Approach (N = 54 sensors) &RMSE &\#Messages &\#Readings \\
 % \hline\hline
 % Naive (A) &0 &222242 &52812 \\
@@ -915,8 +779,6 @@ BCWSN-CH &41.95 &36.14 &276 &0 \\
 % \begin{center}
 % \begin{tabular}{|l||l|l|l|}
 % \hline
-% % \multicolumn{6}{|c}{\textbf{1 semestre 2011}}\\
-% % \hline
 % Approach (N = 54 sensors) &RMSE &\#Messages &\#Readings \\
 % \hline\hline
 % Adaga-P* (A) &0,467 &9340 &51970 \\
@@ -934,8 +796,6 @@ BCWSN-CH &41.95 &36.14 &276 &0 \\
 % \begin{center}
 % \begin{tabular}{|l||l|l|l|}
 % \hline
-% % \multicolumn{6}{|c}{\textbf{1 semestre 2011}}\\
-% % \hline
 % Approach (N = 54 sensors) &RMSE &\#Messages &\#Readings \\
 % \hline\hline
 % Naive (A) &0 &222242 &52812 \\
@@ -953,8 +813,6 @@ BCWSN-CH &41.95 &36.14 &276 &0 \\
 % \begin{center}
 % \begin{tabular}{|l||l|l|l|}
 % \hline
-% % \multicolumn{6}{|c}{\textbf{1 semestre 2011}}\\
-% % \hline
 % Approach (N = 54 sensors) &RMSE &\#Messages &\#Readings \\
 % \hline\hline
 % Adaga-P* (A) &0,467 &9340 &51970 \\
@@ -984,11 +842,8 @@ the sink.
 In the Fig. \ref{fig:num-msg}, one can observe a graph with the evolution of the
 number of transmitted messages ({\it "NumMsg"} for short) in tested approaches.
 NumMsg in the Naive approach grows linearly faster than in the other approaches.
-As one can observe 
-% in Fig. \ref{fig:num-msg-without-naive}
-, the BCWSN-CH is
-which has the lowest number of messages, followed by BCWSN-RN, and finally the
-Adaga-P* approach.
+The BCWSN-CH is which has the lowest number of messages, followed by BCWSN-RN,
+and finally the Adaga-P* approach.
 
 \begin{figure}[!htb]
 \centering
@@ -1025,8 +880,8 @@ BCWSN-RN, only the Representative Nodes (one per cluster) make sensing.
 
 As result of our experiments, we show that the use of the \textit{Behavioral
 Correlation} approach associated with a temporal correlation technique using two
-different methods for intra-cluster scheduling, namely Representative Nodes
-(RNs) or Cluster Heads (CHs), brought a great benefit to the energy economy of
+different methods for intra-cluster scheduling, which are Representative Nodes
+(RNs) and Cluster Heads (CHs), brought a great benefit to the energy economy of
 Wireless Sensor Networks (WSNs), since, while it remained a low RMS Error for
 the data obtained by the sink using such techniques (behavio-temporal
 suppression), two important factors in energy expenditure of a sensor network
