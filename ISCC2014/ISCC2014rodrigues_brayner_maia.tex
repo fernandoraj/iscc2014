@@ -481,8 +481,11 @@ with 8 GB RAM and Mac OS X as operating system.
 One of the main reasons for choosing Sinalgo is because it is very scalable in
 nature, allowing that simulations with up to several thousands of sensor nodes
 be executed in a reasonable time. The data used for the simulation were
-extracted from the real data of experiment Intel Lab Data \cite{Intel2004}.
-
+extracted from the real data of experiment Intel Lab Data \cite{Intel2004}. The
+selected kind of sensed data was ``temperature''. M-magnitude parameter has been
+configured with the value of $1.5$ and T-trend was $5\%$, the same as the error
+threshold. The amount of initial data sensing (initial slot time) was 70
+readings, used for the learning stage.
 
 In the experiments, we have executed the following approaches: {\it
   (i)} Naive approach \cite{Madden2005}, where all sensors sense data
@@ -502,7 +505,8 @@ deployed: 1) The Root Mean Square Error (RMSE)  to verify the accuracy of
 approach; 2) The Number of Messages injected into the network, which is a
 critical factor to measure energy consumption of the network, and; 3) The
 Number of Sensed Data, which impacts in the network energy consumption and in
-the accuracy of the result provided by each approach.
+the accuracy of the result provided by each approach. The RMSE is calculated by
+reference to the naive approach filtered values.
 
 \subsection{Results and Discussion}
 \label{results-and-discussion}
